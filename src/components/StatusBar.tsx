@@ -77,7 +77,7 @@ export default function StatusBar({ activeId }: StatusBarProps) {
           </button>
         </span>
         <Separator />
-        <span>© 2026</span>
+        <span>2026</span>
       </div>
     </footer>
   );

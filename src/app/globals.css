@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #ffffff;
+  --color-ink: #0a0a0a;
+  --color-rule: #e5e5e5;
+  --color-muted: #6b6b6b;
+  --color-bio: #3a3a3a;
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --radius-none: 0;
+
+  --tracking-caps: 0.15em;
+  --tracking-display: -0.02em;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===========================================================================
+   Sidebar layout — CSS-driven defaults with data-attribute overrides
+   ===========================================================================
+   The wrapper element carries `data-sidebar`. When the attribute is absent
+   ("default" state in JS), media queries decide: sidebar is open on desktop
+   (≥1024px) and closed on mobile. When the user toggles, the attribute is
+   set to "open" or "closed" and overrides the media query.
+
+   This keeps the initial render purely server-side: no FOUC, no hydration
+   mismatch, no first-frame animation.
+   =========================================================================== */
+
+.sb-sidebar {
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: transform 200ms ease;
+}
+@media (min-width: 1024px) {
+  .sb-sidebar {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+}
+[data-sidebar="open"] .sb-sidebar {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+[data-sidebar="closed"] .sb-sidebar {
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.sb-content {
+  padding-left: 24px;
+  padding-right: 24px;
+  transition: padding 200ms ease;
+}
+@media (min-width: 1024px) {
+  .sb-content {
+    padding-left: 260px;
+    padding-right: 24px;
+  }
+  [data-sidebar="closed"] .sb-content {
+    padding-left: 80px;
+  }
+  [data-sidebar="open"] .sb-content {
+    padding-left: 260px;
+  }
+}
+
+.sb-column {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (min-width: 1024px) {
+  .sb-column {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  [data-sidebar="closed"] .sb-column {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  [data-sidebar="open"] .sb-column {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sb-statusbar-position {
+  left: 0;
+  transition: left 200ms ease;
+}
+@media (min-width: 1024px) {
+  .sb-statusbar-position {
+    left: 260px;
+  }
+  [data-sidebar="closed"] .sb-statusbar-position {
+    left: 0;
+  }
+  [data-sidebar="open"] .sb-statusbar-position {
+    left: 260px;
+  }
+}
+
+.sb-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+@media (max-width: 1023.98px) {
+  [data-sidebar="open"] .sb-backdrop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.sb-floating-toggle {
+  display: inline-flex;
+}
+@media (min-width: 1024px) {
+  .sb-floating-toggle {
+    display: none;
+  }
+}
+[data-sidebar="open"] .sb-floating-toggle {
+  display: none;
+}
+[data-sidebar="closed"] .sb-floating-toggle {
+  display: inline-flex;
+}
+
+@media print {
+  nav[aria-label="Site navigation"],
+  button[aria-label="Open sidebar"],
+  button[aria-label="Close sidebar"] {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000 !important;
+  }
+
+  body {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  main > div {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    color: #555;
+  }
+
+  a[href^="#"]::after {
+    content: none;
+  }
+
+  section,
+  #readme {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .section-label {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .status-bar {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  TODO: convert this to og.png before deploying.
+  Example: `npx sharp-cli -i public/og.svg -o public/og.png`
+  or `node scripts/og-png.mjs` if the script is kept.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <text x="120" y="300"
+        font-family="Newsreader, 'Times New Roman', serif"
+        font-size="96"
+        fill="#0a0a0a">Killian Provin</text>
+  <line x1="120" y1="324" x2="200" y2="324"
+        stroke="#0a0a0a" stroke-width="1"/>
+  <text x="120" y="370"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="18"
+        fill="#6b6b6b"
+        letter-spacing="2.7">CRYPTOGRAPHY · RESEARCHER · PARIS</text>
+  <text x="120" y="590"
+        font-family="JetBrains Mono, ui-monospace, monospace"
+        font-size="14"
+        fill="#9a9a9a">provin.fr</text>
+</svg>

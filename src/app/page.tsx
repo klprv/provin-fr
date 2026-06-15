@@ -1,29 +1,19 @@
-import Hero from "@/components/Hero";
-
-const placeholderSections = [
-  { id: "publications", label: "PUBLICATIONS" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "cv", label: "CV" },
-  { id: "contact", label: "CONTACT" },
-] as const;
-
 export default function Page() {
   return (
-    <>
-      <div id="readme">
-        <Hero />
-      </div>
-      {placeholderSections.map(({ id, label }) => (
-        <section
-          key={id}
-          id={id}
-          className="min-h-[60vh] flex items-center"
-        >
-          <p className="section-label font-sans text-[12px] uppercase tracking-[0.15em] text-muted">
-            {label}
+    <div id="readme">
+      <section className="min-h-[80vh] flex items-center">
+        <div className="w-full">
+          <h1 className="font-serif text-[56px] md:text-[96px] leading-[1.05] tracking-[-0.02em] text-ink">
+            Killian Provin
+          </h1>
+
+          <hr className="mt-6 w-16 h-px border-0 bg-ink" />
+
+          <p className="mt-5 text-[12px] uppercase tracking-[0.15em] text-muted">
+            Site en construction <span aria-hidden="true">·</span> À venir
           </p>
-        </section>
-      ))}
-    </>
+        </div>
+      </section>
+    </div>
   );
 }

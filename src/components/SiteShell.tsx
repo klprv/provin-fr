@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { sectionIds } from "@/data/sidebar";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import MobileBackdrop from "./MobileBackdrop";
@@ -22,6 +23,7 @@ export default function SiteShell({
   // data-sidebar attribute. Initial value is always "default" so SSR and
   // first client render produce identical HTML — no FOUC, no hydration
   // mismatch.
+  const pathname = usePathname();
   const [state, setState] = useState<SidebarState>("default");
   const activeId = useActiveSection(sectionIds);
 
@@ -89,6 +91,14 @@ export default function SiteShell({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [toggle]);
+
+  if (pathname === "/") {
+    return (
+      <main className="px-6 md:px-12 pb-12">
+        <div className="max-w-[680px] mx-auto">{children}</div>
+      </main>
+    );
+  }
 
   return (
     <div data-sidebar={state === "default" ? undefined : state}>

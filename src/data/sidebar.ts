@@ -36,13 +36,18 @@ export const sidebarTree: SidebarNode[] = [
     children: [
       {
         type: "external",
-        name: "github.com/killianprovin",
-        href: "https://github.com/killianprovin",
+        name: "github.com/klprv",
+        href: "https://github.com/klprv",
       },
       {
         type: "external",
         name: "scholar.google.com",
         href: "https://scholar.google.com",
+      },
+      {
+        type: "external",
+        name: "orcid.org",
+        href: "https://orcid.org/0009-0000-0166-7753",
       },
     ],
   },

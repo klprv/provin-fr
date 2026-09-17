@@ -10,7 +10,7 @@ export default function Page() {
           <hr className="mt-6 w-16 h-px border-0 bg-ink" />
 
           <p className="mt-5 text-[12px] uppercase tracking-[0.15em] text-muted">
-            Site en construction
+            Personal website coming soon.
           </p>
         </div>
       </section>

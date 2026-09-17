@@ -36,7 +36,7 @@ export const sidebarTree: SidebarNode[] = [
     children: [
       {
         type: "external",
-        name: "github.com/klprv",
+        name: "github.com",
         href: "https://github.com/klprv",
       },
       {
